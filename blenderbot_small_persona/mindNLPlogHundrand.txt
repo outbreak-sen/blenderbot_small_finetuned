@@ -1,0 +1,108 @@
+# 这个是百分之一的数据训练结果
+(MindSpore) [ma-user work]$/home/ma-user/anaconda3/envs/MindSpore/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 30 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+or.com^CF_ENDPOINT=https://hf-mirro
+(MindSpore) [ma-user work]$export HF_ENDPOINT=https://hf-mirror.com
+(MindSpore) [ma-user work]$python OldmindNLPBlenderbotsmall.py
+Building prefix dict from the default dictionary ...
+Loading model from cache /tmp/jieba.cache
+Loading model cost 1.247 seconds.
+Prefix dict has been built successfully.
+模型和分词器加载完成
+input question: Nice to meet you too. What are you interested in?
+output answer: they're interested in sports., family. family, family, and family... family. and family, but i don't know what i'll do when i move on the road of money, or technology, or food, or other means of transportation, or politics, or money. or technology. or politics. or sports. or animals. or food. or music. or movies. or television. or tv. or internet. or computers. or cars. or phones. or software. or computer. or anything else. and technology. and other means than technology.
+加载数据集
+Synthetic-Persona-Chat_train.csv: 100%|█| 15.9M/15.9M [00:21<00:00, 249
+Synthetic-Persona-Chat_valid.csv: 1.78MB [00:06, 287kB/s]
+Synthetic-Persona-Chat_test.csv: 1.72MB [00:06, 247kB/s] 
+Generating train split: 8938 examples [00:00, 31721.44 examples/s]
+Generating validation split: 1000 examples [00:00, 29244.50 examples/s]
+Generating test split: 968 examples [00:00, 29931.26 examples/s]
+dataset finished
+dataset: DatasetDict({
+    train: Dataset({
+        features: ['user 1 personas', 'user 2 personas', 'Best Generated Conversation'],
+        num_rows: 8938
+    })
+    validation: Dataset({
+        features: ['user 1 personas', 'user 2 personas', 'Best Generated Conversation'],
+        num_rows: 1000
+    })
+    test: Dataset({
+        features: ['user 1 personas', 'user 2 personas', 'Best Generated Conversation'],
+        num_rows: 968
+    })
+})
+dataset['train'][0]: {'user 1 personas': 'I am 32.\nI do not want a job.\nI play video games all day.\nI still live at home with my parents.', 'user 2 personas': 'My favorite drink is iced coffee.\nI have a black belt in karate.\nI m in a jazz band and play the saxophone.\nI vacation along lake michigan every summer.', 'Best Generated Conversation': "User 1: Hi! I'm [user 1's name].\nUser 2: Hi [user 1's name], I'm [user 2's name].\nUser 1: What do you do for fun?\nUser 2: I like to play video games, go to the beach, and read.\nUser 1: I like to play video games too! I'm not much of a reader, though.\nUser 2: What video games do you like to play?\nUser 1: I like to play a lot of different games, but I'm really into competitive online games right now.\nUser 2: I'm not really into competitive games, I like to play more relaxing games.\nUser 1: That's cool. What kind of relaxing games do you like to play?\nUser 2: I like to play puzzle games, simulation games, and story-based games.\nUser 1: I've never been much of a puzzle game person, but I do like simulation games and story-based games.\nUser 2: Nice! What's your favorite simulation game?\nUser 1: I like Stardew Valley a lot. It's a farming game, but it's also really relaxing and fun.\nUser 2: I've heard good things about that game. I might have to check it out.\nUser 1: You should! It's a lot of fun.\nUser 2: Well, I'm glad we met. Maybe we can play some games together sometime.\nUser 1: That would be fun!\nUser 2: Great! I'll send you my Steam name.\nUser 1: Ok, sounds good."}
+dataset_train: Dataset({
+    features: ['user 1 personas', 'user 2 personas', 'Best Generated Conversation'],
+    num_rows: 8938
+})
+dataset_train['Best Generated Conversation'][0]:
+ User 1: Hi! I'm [user 1's name].
+User 2: Hi [user 1's name], I'm [user 2's name].
+User 1: What do you do for fun?
+User 2: I like to play video games, go to the beach, and read.
+User 1: I like to play video games too! I'm not much of a reader, though.
+User 2: What video games do you like to play?
+User 1: I like to play a lot of different games, but I'm really into competitive online games right now.
+User 2: I'm not really into competitive games, I like to play more relaxing games.
+User 1: That's cool. What kind of relaxing games do you like to play?
+User 2: I like to play puzzle games, simulation games, and story-based games.
+User 1: I've never been much of a puzzle game person, but I do like simulation games and story-based games.
+User 2: Nice! What's your favorite simulation game?
+User 1: I like Stardew Valley a lot. It's a farming game, but it's also really relaxing and fun.
+User 2: I've heard good things about that game. I might have to check it out.
+User 1: You should! It's a lot of fun.
+User 2: Well, I'm glad we met. Maybe we can play some games together sometime.
+User 1: That would be fun!
+User 2: Great! I'll send you my Steam name.
+User 1: Ok, sounds good.
+dataset_train['user 1 personas'][0]: I am 32.
+I do not want a job.
+I play video games all day.
+I still live at home with my parents.
+dataset_train['user 2 personas'][0]: My favorite drink is iced coffee.
+I have a black belt in karate.
+I m in a jazz band and play the saxophone.
+I vacation along lake michigan every summer.
+dataset_train.column_names: ['user 1 personas', 'user 2 personas', 'Best Generated Conversation']
+Map: 100%|████████████████| 8938/8938 [00:02<00:00, 4461.78 examples/s]
+Map: 100%|████████████████| 1000/1000 [00:00<00:00, 4373.61 examples/s]
+Saving the dataset (1/1 shards): 100%|█| 245444/245444 [00:00<00:00, 59
+Saving the dataset (1/1 shards): 100%|█| 27749/27749 [00:00<00:00, 6123
+tokenizer数据集
+Map:   0%|           | 0/235897 [00:00<?, ? examples/s]/home/ma-user/anaconda3/envs/MindSpore/lib/python3.9/site-packages/mindnlp/transformers/tokenization_utils_base.py:4025: UserWarning: `as_target_tokenizer` is deprecated. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|█| 235897/235897 [29:42<00:00, 132.34 example
+Map: 100%|██████████████| 26872/26872 [03:22<00:00, 132.70 examples/s]
+Filter: 100%|████████| 235897/235897 [01:21<00:00, 2902.52 examples/s]
+Filter: 100%|██████████| 26872/26872 [00:09<00:00, 2933.96 examples/s]
+Saving the dataset (2/2 shards): 100%|█| 235897/235897 [00:05<00:00, 4
+Saving the dataset (1/1 shards): 100%|█| 26872/26872 [00:00<00:00, 428
+dataset_train_tokenized: Dataset({
+    features: ['input', 'target', 'input_ids', 'attention_mask', 'labels'],
+    num_rows: 2358
+})
+dataset_valid_tokenized: Dataset({
+    features: ['input', 'target', 'input_ids', 'attention_mask', 'labels'],
+    num_rows: 268
+})
+开始训练
+  0%|                                         | 0/885 [00:00<?, ?it/s]{'loss': 0.2619, 'learning_rate': 3.7579617834394906e-05, 'epoch': 1.0}
+ 33%|██████████▎                    | 295/885 [02:27<04:44,  2.07it/s]{'eval_loss': 0.20078997313976288, 'eval_runtime': 2.3872, 'eval_samples_per_second': 14.243, 'eval_steps_per_second': 2.095, 'epoch': 1.0} 
+ 56%|█████████████████▌             | 500/885 [04:09<03:09,  2.03it/s]Some non-default generation parameters are set in the model config. These should go into a GenerationConfig file instead.
+Non-default generation parameters: {'max_length': 128, 'min_length': 20, 'num_beams': 10, 'length_penalty': 0.65, 'no_repeat_ngram_size': 3, 'forced_eos_token_id': 2}
+{'loss': 0.1591, 'learning_rate': 1.8789808917197453e-05, 'epoch': 2.0}
+{'eval_loss': 0.19182783365249634, 'eval_runtime': 2.297, 'eval_samples_per_second': 14.802, 'eval_steps_per_second': 2.177, 'epoch': 2.0}  
+{'loss': 0.125, 'learning_rate': 0.0, 'epoch': 3.0}                   
+{'eval_loss': 0.18964624404907227, 'eval_runtime': 2.2449, 'eval_samples_per_second': 15.146, 'eval_steps_per_second': 2.227, 'epoch': 3.0} 
+{'train_runtime': 457.5715, 'train_samples_per_second': 15.473, 'train_steps_per_second': 1.934, 'train_loss': 0.18201401274083023, 'epoch': 3.0}
+100%|███████████████████████████████| 885/885 [07:37<00:00,  1.93it/s]
+100%|█████████████████████████████████| 34/34 [00:02<00:00, 16.04it/s]
+Evaluation results: {'eval_loss': 0.18964625895023346, 'eval_runtime': 2.2902, 'eval_samples_per_second': 14.846, 'eval_steps_per_second': 2.183, 'epoch': 3.0}
+Some non-default generation parameters are set in the model config. These should go into a GenerationConfig file instead.
+Non-default generation parameters: {'max_length': 128, 'min_length': 20, 'num_beams': 10, 'length_penalty': 0.65, 'no_repeat_ngram_size': 3, 'forced_eos_token_id': 2}
+再次测试对话
+input question: Nice to meet you too. What are you interested in?
+output answer: user 2: i'm interested in a lot of things, but i especially like science fiction and fantasy. i've read a few of my favorite books in my life, and i think i'd like to read more historical fiction, and romance novels. i also like to write short stories, and my favorite characters are all of the same author, so i'll have to see where i want to go. so, what do you like to do in your free time, and where do you want to write your next story, if you don't mind being frank about it?.

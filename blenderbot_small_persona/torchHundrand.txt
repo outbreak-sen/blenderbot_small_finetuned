@@ -1,0 +1,35 @@
+# 这个是百分之一的数据训练结果
+% python tentorchBlenderbotsmall.py
+加载模型和分词器
+/home/houbosen/anaconda3/envs/mindspore39NLP/lib/python3.9/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+模型和分词器加载完成
+input question: Nice to meet you too. What are you interested in?
+output answer: i ' m not really sure . i ' ve always wanted to go back to school , but i don ' t know what i want to do yet .
+加载数据集
+tokenizer数据集
+dataset_train_tokenized: Dataset({
+    features: ['input', 'target', 'input_ids', 'attention_mask', 'labels'],
+    num_rows: 2358
+})
+dataset_valid_tokenized: Dataset({
+    features: ['input', 'target', 'input_ids', 'attention_mask', 'labels'],
+    num_rows: 268
+})
+/home/houbosen/anaconda3/envs/mindspore39NLP/lib/python3.9/site-packages/transformers/training_args.py:1594: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+ 25%|███████████████████████▋                                          25%|███████████████████████▊                                          25%|███████▍                      | 441/1770 [00:34<01:43, 12.84it/s] 28%|████████▍                     | 499/1770 [00:38<01:36, 13.16it/s]/home/houbosen/anaconda3/envs/mindspore39NLP/lib/python3.9/site-packages/transformers/modeling_utils.py:2810: UserWarning: Moving the following attributes in the config to the generation config: {'max_length': 128, 'min_length': 20, 'num_beams': 10, 'length_penalty': 0.65, 'no_repeat_ngram_size': 3}. You are seeing this warning because you've set generation parameters in the model config, as opposed to in the generation config.
+  warnings.warn(
+{'loss': 1.0845, 'grad_norm': 2.376235246658325, 'learning_rate': 3.5479041916167664e-05, 'epoch': 1.0}
+{'eval_loss': 0.19273999333381653, 'eval_runtime': 1.2987, 'eval_samples_per_second': 206.355, 'eval_steps_per_second': 51.589, 'epoch': 1.0}
+{'loss': 0.1286, 'grad_norm': 2.335958480834961, 'learning_rate': 1.781437125748503e-05, 'epoch': 2.0}                                                                                                                                                                             
+{'eval_loss': 0.1891622692346573, 'eval_runtime': 1.3106, 'eval_samples_per_second': 204.485, 'eval_steps_per_second': 51.121, 'epoch': 2.0}                                                                                                                                       
+{'loss': 0.0905, 'grad_norm': 2.8253331184387207, 'learning_rate': 1.4970059880239523e-07, 'epoch': 3.0}                                                                                                                                                                           
+{'eval_loss': 0.19148747622966766, 'eval_runtime': 1.314, 'eval_samples_per_second': 203.954, 'eval_steps_per_second': 50.988, 'epoch': 3.0}                                                                                                                                       
+{'train_runtime': 148.1579, 'train_samples_per_second': 47.746, 'train_steps_per_second': 11.947, 'train_loss': 0.4345266288283181, 'epoch': 3.0}                                                                                                                                  
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1770/1770 [02:28<00:00, 11.95it/s]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 67/67 [00:01<00:00, 51.80it/s]
+Evaluation results: {'eval_loss': 0.19148747622966766, 'eval_runtime': 1.3163, 'eval_samples_per_second': 203.604, 'eval_steps_per_second': 50.901, 'epoch': 3.0}
+再次测试对话
+input question: Nice to meet you too. What are you interested in?
+output answer: user 2: i ' m interested in a lot of things , but my favorite ones are probably history and language . what do you like to do for fun ? hades is one of my favorite characters . hades is also my favorite character . hades namegardenblem pola litz strönape ception ddie ppon plata yder foundry patel fton darted sler bbins vili atsu ović endra scoe barons

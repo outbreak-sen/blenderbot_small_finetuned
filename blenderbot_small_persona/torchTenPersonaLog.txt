@@ -1,0 +1,97 @@
+# 这个是十分之一的数据训练结果
+% python tentorchBlenderbotsmall.py 
+加载模型和分词器
+/home/houbosen/anaconda3/envs/mindspore39NLP/lib/python3.9/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+模型和分词器加载完成
+input question: Nice to meet you too. What are you interested in?
+output answer: i ' m not really sure . i ' ve always wanted to go back to school , but i don ' t know what i want to do yet .
+加载数据集
+dataset finished
+dataset: DatasetDict({
+    train: Dataset({
+        features: ['user 1 personas', 'user 2 personas', 'Best Generated Conversation'],
+        num_rows: 8938
+    })
+    validation: Dataset({
+        features: ['user 1 personas', 'user 2 personas', 'Best Generated Conversation'],
+        num_rows: 1000
+    })
+    test: Dataset({
+        features: ['user 1 personas', 'user 2 personas', 'Best Generated Conversation'],
+        num_rows: 968
+    })
+})
+dataset['train'][0]: {'user 1 personas': 'I am 32.\nI do not want a job.\nI play video games all day.\nI still live at home with my parents.', 'user 2 personas': 'My favorite drink is iced coffee.\nI have a black belt in karate.\nI m in a jazz band and play the saxophone.\nI vacation along lake michigan every summer.', 'Best Generated Conversation': "User 1: Hi! I'm [user 1's name].\nUser 2: Hi [user 1's name], I'm [user 2's name].\nUser 1: What do you do for fun?\nUser 2: I like to play video games, go to the beach, and read.\nUser 1: I like to play video games too! I'm not much of a reader, though.\nUser 2: What video games do you like to play?\nUser 1: I like to play a lot of different games, but I'm really into competitive online games right now.\nUser 2: I'm not really into competitive games, I like to play more relaxing games.\nUser 1: That's cool. What kind of relaxing games do you like to play?\nUser 2: I like to play puzzle games, simulation games, and story-based games.\nUser 1: I've never been much of a puzzle game person, but I do like simulation games and story-based games.\nUser 2: Nice! What's your favorite simulation game?\nUser 1: I like Stardew Valley a lot. It's a farming game, but it's also really relaxing and fun.\nUser 2: I've heard good things about that game. I might have to check it out.\nUser 1: You should! It's a lot of fun.\nUser 2: Well, I'm glad we met. Maybe we can play some games together sometime.\nUser 1: That would be fun!\nUser 2: Great! I'll send you my Steam name.\nUser 1: Ok, sounds good."}
+dataset_train: Dataset({
+    features: ['user 1 personas', 'user 2 personas', 'Best Generated Conversation'],
+    num_rows: 8938
+})
+dataset_train['Best Generated Conversation'][0]:
+ User 1: Hi! I'm [user 1's name].
+User 2: Hi [user 1's name], I'm [user 2's name].
+User 1: What do you do for fun?
+User 2: I like to play video games, go to the beach, and read.
+User 1: I like to play video games too! I'm not much of a reader, though.
+User 2: What video games do you like to play?
+User 1: I like to play a lot of different games, but I'm really into competitive online games right now.
+User 2: I'm not really into competitive games, I like to play more relaxing games.
+User 1: That's cool. What kind of relaxing games do you like to play?
+User 2: I like to play puzzle games, simulation games, and story-based games.
+User 1: I've never been much of a puzzle game person, but I do like simulation games and story-based games.
+User 2: Nice! What's your favorite simulation game?
+User 1: I like Stardew Valley a lot. It's a farming game, but it's also really relaxing and fun.
+User 2: I've heard good things about that game. I might have to check it out.
+User 1: You should! It's a lot of fun.
+User 2: Well, I'm glad we met. Maybe we can play some games together sometime.
+User 1: That would be fun!
+User 2: Great! I'll send you my Steam name.
+User 1: Ok, sounds good.
+dataset_train['user 1 personas'][0]: I am 32.
+I do not want a job.
+I play video games all day.
+I still live at home with my parents.
+dataset_train['user 2 personas'][0]: My favorite drink is iced coffee.
+I have a black belt in karate.
+I m in a jazz band and play the saxophone.
+I vacation along lake michigan every summer.
+dataset_train.column_names: ['user 1 personas', 'user 2 personas', 'Best Generated Conversation']
+Map: 100%|█████████████████████████████████████████████████████████████████████████████████| 8938/8938 [00:01<00:00, 6179.14 examples/s]
+Map: 100%|█████████████████████████████████████████████████████████████████████████████████| 1000/1000 [00:00<00:00, 5869.88 examples/s]
+Saving the dataset (1/1 shards): 100%|███████████████████████████████████████████████| 235897/235897 [00:00<00:00, 927029.98 examples/s]
+Saving the dataset (1/1 shards): 100%|█████████████████████████████████████████████████| 26872/26872 [00:00<00:00, 916813.11 examples/s]
+tokenizer数据集
+Map:   0%|                                                                                            | 0/235897 [00:00<?, ? examples/s]/home/houbosen/anaconda3/envs/mindspore39NLP/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:3970: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|██████████████████████████████████████████████████████████████████████████████| 235897/235897 [16:52<00:00, 232.99 examples/s]
+Map: 100%|████████████████████████████████████████████████████████████████████████████████| 26872/26872 [01:54<00:00, 235.41 examples/s]
+Filter: 100%|██████████████████████████████████████████████████████████████████████████| 235897/235897 [00:47<00:00, 5017.56 examples/s]
+Filter: 100%|████████████████████████████████████████████████████████████████████████████| 26872/26872 [00:05<00:00, 5054.49 examples/s]
+Saving the dataset (2/2 shards): 100%|███████████████████████████████████████████████| 235897/235897 [00:02<00:00, 113329.76 examples/s]
+Saving the dataset (1/1 shards): 100%|█████████████████████████████████████████████████| 26872/26872 [00:00<00:00, 114209.13 examples/s]
+dataset_train_tokenized: Dataset({
+    features: ['input', 'target', 'input_ids', 'attention_mask', 'labels'],
+    num_rows: 23589
+})
+dataset_valid_tokenized: Dataset({
+    features: ['input', 'target', 'input_ids', 'attention_mask', 'labels'],
+    num_rows: 2687
+})
+/home/houbosen/anaconda3/envs/mindspore39NLP/lib/python3.9/site-packages/transformers/training_args.py:1594: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+  3%|██▋                                                                                            | 499/17694 [00:36<22:30, 12.73it/s]/home/houbosen/anaconda3/envs/mindspore39NLP/lib/python3.9/site-packages/transformers/modeling_utils.py:2810: UserWarning: Moving the following attributes in the config to the generation config: {'max_length': 128, 'min_length': 20, 'num_beams': 10, 'length_penalty': 0.65, 'no_repeat_ngram_size': 3}. You are seeing this warning because you've set generation parameters in the model config, as opposed to in the generation config.
+  warnings.warn(
+ 25%|███████████████████████                                                   25%|███████████████████████                                                   25%|████████▊                           | 4351/17694 [05:43<16:47, 13.24it/s] 25%|████████▉                         31%|██ 31%|█████████████████████████████████████████████████████████████████████████                                                                                                                                                                  | 5501/17694 [07:14<1:18:39,  2 31%|████████████████████████████████████████████████████████████████████████▍                                                                                                                                                                | 5503/17694 [07:15<59:40,  3.41it/s]{'loss': 0.2615, 'grad_norm': 2.5676426887512207, 'learning_rate': 3.3537001250426284e-05, 'epoch': 1.0}                                                                                                                                                                           
+{'eval_loss': 0.160710409283638, 'eval_runtime': 13.0434, 'eval_samples_per_second': 206.004, 'eval_steps_per_second': 51.52, 'epoch': 1.0}                                                                                                                                        
+{'loss': 0.1269, 'grad_norm': 2.494783639907837, 'learning_rate': 1.6775605319995454e-05, 'epoch': 2.0}                                                                                                                                                                            
+{'eval_loss': 0.15692724287509918, 'eval_runtime': 12.9701, 'eval_samples_per_second': 207.169, 'eval_steps_per_second': 51.811, 'epoch': 2.0}                                                                                                                                     
+{'loss': 0.0987, 'grad_norm': 2.0360140800476074, 'learning_rate': 1.9893145390474024e-08, 'epoch': 3.0}                                                                                                                                                                           
+{'eval_loss': 0.1593361645936966, 'eval_runtime': 13.1012, 'eval_samples_per_second': 205.095, 'eval_steps_per_second': 51.293, 'epoch': 3.0}                                                                                                                                      
+{'train_runtime': 1441.0122, 'train_samples_per_second': 49.109, 'train_steps_per_second': 12.279, 'train_loss': 0.1623972757692403, 'epoch': 3.0}                                                                                                                                 
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 17694/17694 [24:01<00:00, 12.28it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 672/672 [00:12<00:00, 51.82it/s]
+Evaluation results: {'eval_loss': 0.1593361645936966, 'eval_runtime': 12.9882, 'eval_samples_per_second': 206.88, 'eval_steps_per_second': 51.739, 'epoch': 3.0}
+再次测试对话
+input question: Nice to meet you too. What are you interested in?
+output answer: user 2: i ' m interested in a lot of things , but i just haven ' t had the time right now . i ' ve been busy with school , work , and other things . i don ' t really have much time for it anymore . i just stay home and watch movies and play video games . i also like to spend time with my family and friends . i like to go to the movies , read books , and go out to eat . i have a dog and a cat , so i love spending time with them . i think it ' s a great way to relax and enjoy the outdoors .
+

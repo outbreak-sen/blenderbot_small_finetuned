@@ -1,0 +1,47 @@
+ % python torchBlenderbotsmall.py
+加载模型和分词器
+/home/houbosen/anaconda3/envs/mindspore39NLP/lib/python3.9/site-packages/torch/_utils.py:776: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+模型和分词器加载完成
+input question: The Vatican Apostolic Library, more commonly called the Vatican Library or simply the Vat, is the library of the Holy See, located in Vatican City. Formally established in 1475, although it is much older, it is one of the oldest libraries in the world and contains one of the most significant collections of historical texts. It has 75,000 codices from throughout history, as well as 1.1 million printed books, which include some 8,500 incunabula. 
+
+The Vatican Library is a research library for history, law, philosophy, science and theology. The Vatican Library is open to anyone who can document their qualifications and research needs. Photocopies for private study of pages from books published between 1801 and 1990 can be requested in person or by mail. 
+
+In March 2014, the Vatican Library began an initial four-year project of digitising its collection of manuscripts, to be made available online. 
+
+The Vatican Secret Archives were separated from the library at the beginning of the 17th century; they contain another 150,000 items. 
+
+Scholars have traditionally divided the history of the library into five periods, Pre-Lateran, Lateran, Avignon, Pre-Vatican and Vatican. 
+
+The Pre-Lateran period, comprising the initial days of the library, dated from the earliest days of the Church. Only a handful of volumes survive from this period, though some are very significant.When was the Vat formally opened?
+output answer: wow , that ' s a lot of information ! i ' ll have to check it out !
+加载数据集
+/home/houbosen/anaconda3/envs/mindspore39NLP/lib/python3.9/site-packages/transformers/training_args.py:1594: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+开始训练
+  9%|████████▉                                                                                       | 500/5400 [00:51<08:18,  9.84it/s]/home/houbosen/anaconda3/envs/mindspore39NLP/lib/python3.9/site-packages/transformers/modeling_utils.py:2810: UserWarning: Moving the following attributes in the config to the generation config: {'max_length': 128, 'min_length': 20, 'num_beams': 10, 'length_penalty': 0.65, 'no_repeat_ngram_size': 3}. You are seeing this warning because you've set generation parameters in the model config, as opposed to in the generation config.
+  warnings.warn(
+{'loss': 0.3391, 'grad_norm': 0.4720926284790039, 'learning_rate': 3.400943396226415e-05, 'epoch': 1.0}                                 
+{'eval_loss': 0.010080045089125633, 'eval_runtime': 4.2809, 'eval_samples_per_second': 116.798, 'eval_steps_per_second': 29.199, 'epoch': 1.0}                                                                                                                                  
+{'loss': 0.0069, 'grad_norm': 0.3395560681819916, 'learning_rate': 1.7028301886792454e-05, 'epoch': 2.0}                                
+{'eval_loss': 0.008667134679853916, 'eval_runtime': 4.2802, 'eval_samples_per_second': 116.818, 'eval_steps_per_second': 29.205, 'epoch': 2.0}                                                                                                                                  
+{'loss': 0.0035, 'grad_norm': 0.38239651918411255, 'learning_rate': 4.716981132075472e-08, 'epoch': 3.0}                                
+{'eval_loss': 0.00842051301151514, 'eval_runtime': 4.2792, 'eval_samples_per_second': 116.845, 'eval_steps_per_second': 29.211, 'epoch': 3.0}                                                                                                                                   
+{'train_runtime': 583.4886, 'train_samples_per_second': 37.014, 'train_steps_per_second': 9.255, 'train_loss': 0.11650851832495795, 'epoch': 3.0}                                                                                                                               
+100%|███████████████████████████████████████████████████████████████████████████████████████████████| 5400/5400 [09:43<00:00,  9.25it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:04<00:00, 29.44it/s]
+Evaluation results: {'eval_loss': 0.00842051301151514, 'eval_runtime': 4.273, 'eval_samples_per_second': 117.015, 'eval_steps_per_second': 29.254, 'epoch': 3.0}
+再次测试对话
+input question: The Vatican Apostolic Library, more commonly called the Vatican Library or simply the Vat, is the library of the Holy See, located in Vatican City. Formally established in 1475, although it is much older, it is one of the oldest libraries in the world and contains one of the most significant collections of historical texts. It has 75,000 codices from throughout history, as well as 1.1 million printed books, which include some 8,500 incunabula. 
+
+The Vatican Library is a research library for history, law, philosophy, science and theology. The Vatican Library is open to anyone who can document their qualifications and research needs. Photocopies for private study of pages from books published between 1801 and 1990 can be requested in person or by mail. 
+
+In March 2014, the Vatican Library began an initial four-year project of digitising its collection of manuscripts, to be made available online. 
+
+The Vatican Secret Archives were separated from the library at the beginning of the 17th century; they contain another 150,000 items. 
+
+Scholars have traditionally divided the history of the library into five periods, Pre-Lateran, Lateran, Avignon, Pre-Vatican and Vatican. 
+
+The Pre-Lateran period, comprising the initial days of the library, dated from the earliest days of the Church. Only a handful of volumes survive from this period, though some are very significant.When was the Vat formally opened?
+output answer: 1475 monsieur palermo pradesh ˈprincipality pali turbines constituent gallagher xii ɪxv odi pauline ɒgregory coefficient julien deutsche sbury roberto henrietta əenko militants gmina podium hya taliban hague ːkensington poole inmate livery habsburg longitude reid lieu@@
+
